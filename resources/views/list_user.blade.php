@@ -1,26 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <h1>Daftar Pengguna</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nama</th>
-                <th>NPM</th>
-                <th>Kelas</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($users as $user)
-                <tr>
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->nama }}</td>
-                    <td>{{ $user->nim }}</td>
-                    <td>{{ $user->nama_kelas }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="fw-bold mb-1" style="color: #2b3674;">Team Members</h3>
+            <p class="text-muted mb-0" style="font-size: 0.9rem;">Overview dari seluruh mahasiswa yang terdaftar di sistem.</p>
+        </div>
+        <div class="bg-white rounded-pill shadow-sm d-flex align-items-center px-3 py-2 border">
+            <i class="bi bi-search text-muted me-2"></i>
+            <input type="text" class="border-0 bg-transparent" placeholder="Search user..." style="outline: none; font-size: 0.9rem;">
+        </div>
+    </div>
+    
+    @include('components.user-table', ['users' => $users])
 @endsection
