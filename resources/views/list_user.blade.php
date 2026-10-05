@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        {{ session('success') }}
+
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+        ></button>
+    </div>
+@endif
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h3 class="fw-bold mb-1" style="color: #2b3674;">Team Members</h3>
